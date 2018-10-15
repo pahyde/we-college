@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheets/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <title>We College | learn programming together.</title>
+    </head>
+    <body>
+        <%- include ../partials/nav.ejs %>
+        <div class="landing">
+            <form class="signup" action="/sign-up" method="post">
+                <div class="first-name">
+                    <label for="first-name">First Name</label>
+                    <input type="text" name="first-name">
+                </div>
+                <div class="last-name">
+                    <label for="last-name">Last Name</label>
+                    <input class="last-name" type="text" name="last-name">
+                </div>
+                <label for="email">Email</label>
+                <input class="email" type="text" name="email">
+                <label for="password">Password</label>
+                <input class="password" type="password" name="password">
+                <input class="post-submit block" type="submit" value="Sign Up">
+            </form>
+        </div>
+    </body>
+</html>

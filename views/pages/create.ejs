@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheets/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <title>We College | learn programming together.</title>
+    </head>
+    <body>
+        <%- include ../partials/nav.ejs %>
+        <form class="topic-post" action="/create-topic" method="post">
+            <label for="title">Title:</label>
+            <input class="post-title" type="text" name="title">
+            <label for="body">Description:</label>
+            <textarea class="post-body" rows="4" cols="50" name="description"></textarea>
+            <input type="radio" name="cat" value="code">
+            <span class="post-cat">code</span>
+            <input type="radio" name="cat" value="general">
+            <span class="post-cat">general</span>
+            <input type="radio" name="cat" value="non-tech">
+            <span class="post-cat">non-tech</span>
+            <input class="post-submit" type="submit" value="Submit">
+        </form>
+    </body>
+</html>

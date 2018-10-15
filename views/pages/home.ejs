@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheets/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <title>We College | learn programming together.</title>
+    </head>
+    <body>
+        <%- include ../partials/nav.ejs %>
+        <div class="forum-select">
+            <div class="forum-cat">
+                <select>
+                    <option value="All Categories">All Categories</option>
+                    <option value="Code">Code</option>
+                    <option value="General">General</option>
+                    <option value="non-tech">Non-tech</option>
+                </select>
+            </div>
+            <div class="forum-search">
+                <input type="text" placeholder="Search..">
+            </div>
+            <div class="forum-add">
+                <a href="/create">new topic</a>
+            </div>
+        </div>
+        <div class="forum">
+            <% for (var i = 0; i < posts.length; i++) {%>
+                <div class="forum-topic">
+                    <div class="topic-avitar">
+                        <img src="images/avi.jpeg" alt="avi">
+                    </div>
+                    <div class="topic-content">
+                        <div class="topic-header">
+                            <div class="header-username">
+                                <h3><%= posts[i].user %></h3>
+                            </div>
+                            <div class="header-timestamp">
+                                <h3>
+                                    <span class="bold">Last Update:</span>
+                                    <span>14 hours ago</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="topic-body">
+                            <h3 class="body-title"><%= posts[i].title %></h3>
+                            <p class="body-par"><%= posts[i].description %></p>
+                        </div>
+                        <div class="topic-stats">
+                            <div class="stats-likes">
+                                <img src="images/like.png" alt="avi">
+                                <p><%= posts[i].likes %></p>
+                            </div>
+                            <div class="stats-comments">
+                                <img src="images/comments.png" alt="avi">
+                                <p><%= posts[i].comments %></p>
+                            </div>
+                            <div class="stats-category">
+                                <h3>
+                                    <span class="bold" id="cat">Category:</span>
+                                    <span id="cat-type"><%= posts[i].category %></span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </body>
+</html>

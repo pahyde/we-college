@@ -1,0 +1,19 @@
+{
+  "name": "we-college",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-session-knex": "^1.4.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "knex": "^0.15.2",
+    "pg": "^7.5.0"
+  }
+}

@@ -1,0 +1,389 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+}
+
+body {
+    background: rgba(100,100,150,.05);
+}
+
+.heading {
+    color: red;
+}
+
+.nav {
+    height: 90px;
+    padding-top: 4px;
+    background: white;
+    /*background: rgb(50, 50, 120);*/
+    box-shadow: 0px .5px 2px 1px rgba(0,0,0,.1);
+    border-top: solid rgb(10, 80, 180);
+}
+
+.nav-home {
+    float: left;
+    height: 100%;
+    width: 60px;
+    padding: 20px;
+    padding-left: 30px;
+}
+
+.nav-home img {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+}
+
+.nav-div {
+    float: left;
+    height: 100%;
+    width: 5%;
+}
+
+.nav-div img {
+    width: 25px;
+    height: 25px;
+    margin: auto;
+    display: block;
+    margin-top: 28px;
+}
+
+.nav-logo {
+    float: left;
+    height: 100%;
+    width: 50px;
+}
+
+.nav-logo img {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.logo-title {
+    float: left;
+    height: 100%;
+    width: 150px;
+    padding-left: 4px;
+}
+
+.logo-title h2 {
+    margin-top: 25px;
+    color: rgb(10, 80, 180);
+    font-family: sans-serif;
+    font-weight: 300;
+}
+
+.nav-profile {
+    float: right;
+    height: 100%;
+    width: 10%;
+    margin-right: 20px;
+}
+
+.nav-profile img {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    display: block;
+    margin-top: 15px;
+}
+
+.nav-notif {
+    float: right;
+    height: 100%;
+    width: 20%;
+}
+
+.forum {
+    margin: auto;
+    width: 850px;
+    box-shadow: 0px .5px 4px 1px rgba(0,0,0,.1);
+    background: white;
+} 
+
+.forum-select {
+    height: 60px;
+    width: 850px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.forum-select * {
+    height: 100%;
+}
+
+.forum-cat {
+    width: 200px;
+    float: left;
+}
+
+.forum-cat select {
+    display: block;
+    width: 150px;
+    height: 40px;
+    margin-top: 8px;
+}
+
+.forum-search {
+    width: 200px;
+    float: left;
+}
+
+.forum-search input {
+    display: block;
+    width: 150px;
+    height: 40px;
+    margin-top: 8px;
+}
+
+.forum-add {
+    float: right;
+    width: 150px;
+}
+
+.forum-add a {
+    display: block;
+    width: 150px;
+    height: 40px;
+    margin-top: 8px;
+    text-align: right;
+    padding-top: 8px;
+}
+
+.forum-topic {
+    height: 145px;
+    padding: 10px;
+}
+
+.forum-topic * {
+    height: 100%;
+}
+
+.topic-avitar {
+    float: left;
+    width: 11.5%;
+}
+
+.topic-avitar img {
+    width: 58px;
+    height: 58px;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.topic-content {
+    float: right;
+    width: 88.5%;
+}
+
+.topic-header {
+    height: 15%;
+}
+
+.topic-body {
+    height: 65%;
+}
+
+.body-title {
+    height: 30%;
+    font-family: futura;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(0,0,0,.9);
+}
+
+.body-par {
+    height: 70px;
+    color: rgb(0,0,0,.6);
+    font-family: sans-serif;
+    font-weight: 200;
+    font-size: 15px;
+}
+
+.topic-stats {
+    height: 20%;
+}
+
+.topic-stats * {
+}
+
+.stats-likes {
+    float: left;
+    width: 6%;
+}
+
+.stats-likes img {
+    width: 20px;
+    height: 20px;
+}
+
+.stats-likes p {
+    text-align: top;
+    display: inline;
+    margin-top: 1px;
+    vertical-align: top;
+}
+
+.stats-comments {
+    float: left;
+    width: 10%;
+}
+
+.stats-comments img {
+    width: 20px;
+    height: 20px;
+}
+
+.stats-comments p {
+    text-align: top;
+    display: inline;
+    margin-top: 1px;
+    vertical-align: top;
+}
+
+.stats-category {
+    float: left;
+    width: 20%;
+}
+
+#cat {
+    font-size: 12px;
+}
+
+#cat-type {
+    font-size: 12px;
+    color: rgb(30, 140, 200);
+    font-family: sans-serif;
+    font-weight: 400;
+} 
+
+.header-username {
+    float: left;
+    width: 40%;
+}
+
+.header-username h3 {
+    font-size: 14px;
+    font-weight: 200;
+    color: rgb(30, 140, 200);
+}
+
+.header-timestamp {
+    float: right;
+    width: 40%;
+    color: rgb(0,0,0,.8);
+}
+
+.header-timestamp h3 {
+    font-weight: 500;
+    font-size: 15px;
+    text-align: right;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* create */
+
+.topic-post {
+    width: 800px;
+    height: 100%;;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.post-title {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.post-body {
+    height: 120px;
+    display: block;
+    width: 100%;
+    resize: vertical;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.post-cat {
+    margin-right: 5px;
+}
+
+.post-submit {
+    display: block;
+    float: right;
+    width: 20%;
+    color: white;
+    background-color: rgb(30,220,140);
+    height: 30px;
+    border-radius: 4px;
+}
+
+.post-submit:hover {
+    background-color: rgb(50,240,160);
+}
+
+/* land */
+
+.landing {
+    background: linear-gradient(0deg,rgba(25,80,110,0.5),rgba(175,100,200,0.2)), url("../images/landing.jpg");
+    height: 850px;
+    border: solid;
+    background-size: cover;
+}
+
+.landing img {
+    background-size: contain;
+}
+
+.signup {
+    width: 360px;
+    margin-left: 60%;
+    margin-top: 80px;
+}
+
+.signup label {
+    display: block;
+    color: white;
+    font-family: sans-serif;
+}
+
+.signup input {
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.first-name {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.last-name {
+    display: inline-block;
+}
+
+.email {
+    width: 273px;
+}
+
+.password {
+    width: 273px;
+    display: block;
+}
+
+.block {
+    display: block;
+    margin-top: 10px;
+    float: none;
+}
+
