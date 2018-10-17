@@ -5,14 +5,44 @@ module.exports = app => {
     
     //login
     app.get('/login', (req, res) => {
-        res.render('pages/landing');
+        var user = req.session.user || null;
+        res.render('pages/landing', {user});
     })
 
     //sign up
     app.post('/sign-up', (req, res) => {
         var user = req.body;
-        console.log(user);
+        knex('users')
+          .insert({
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            password: user.password
+          })
+          .then(() => {
+            res.redirect('/');
+          })
         res.redirect('/');
+    })
+
+    app.post('/log-in', (req, res) => {
+        console.log('here');
+        knex('users')
+          .where('email', req.body.email)
+          .then(results => {
+                var user = results[0];
+                console.log(user);
+                console.log(req.body);
+                if (user.password == req.body.password) {
+                    req.session.user = user;
+                    res.redirect('/');
+                } else {
+                    res.redirect('/login');
+                }
+          })
+          .catch(() => {
+              res.redirect('/login');
+          })
     })
     
     app.use(loginAuthentication);
@@ -24,7 +54,8 @@ module.exports = app => {
         knex('posts')
           .select()
           .then(posts => {
-            res.render('pages/home', {posts});
+            var user = req.session.user || null;
+            res.render('pages/home', {posts, user});
         })
     });
     
@@ -41,7 +72,8 @@ module.exports = app => {
     
     //create thread
     app.get('/create', (req, res) => {
-        res.render('pages/create');
+        var user = req.session.user || null;
+        res.render('pages/create', {user});
     });
 
     //POST
@@ -66,7 +98,11 @@ module.exports = app => {
     })
      
     function loginAuthentication(req, res, next) {
-        next();
+        if (req.session.user) {
+            next();
+        } else {
+            res.redirect('/login');
+        }
     }
 
 };

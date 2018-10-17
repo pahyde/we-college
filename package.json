@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.1",
     "connect-session-knex": "^1.4.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",

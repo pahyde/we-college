@@ -13,10 +13,24 @@
         <div class="logo-title">
             <h2>weCollege</h2>
         </div>
+        <% if (user) { %>
         <div class="nav-profile">
             <img src="images/profile.png" alt="profile">
         </div>
         <div class="nav-notif">
             
         </div>
+        <%} else { %>
+        <form class="topic-post" action="/log-in" method="post">
+            <div class="first-name">
+                <label for="email">email</label>
+                <input type="text" name="email">
+            </div>
+            <div class="last-name">
+                <label for="password">password</label>
+                <input class="last-name" type="password" name="password">
+            </div>
+            <input class="" type="submit" value="Submit">
+        </form>
+        <% } %>
 </div>
