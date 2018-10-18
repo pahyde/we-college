@@ -1,5 +1,6 @@
 const path = require('path');
 const knex = require('../db/knex.js');
+const hasher = require('../config/hasher');
 
 module.exports = app => {
     
@@ -11,46 +12,47 @@ module.exports = app => {
 
     //sign up
     app.post('/sign-up', (req, res) => {
-        var user = req.body;
-        knex('users')
-          .insert({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            password: user.password
-          })
-          .then(() => {
-            res.redirect('/');
-          })
-        res.redirect('/');
+        hasher.hash(req.body).then(user => {
+            knex('users').insert({
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                password: user.password
+            })
+            .then(() => {
+                res.redirect('/');
+            })
+            .catch(err => {
+                console.error(err);
+            })
+        })
     })
 
     app.post('/log-in', (req, res) => {
-        console.log('here');
-        knex('users')
-          .where('email', req.body.email)
-          .then(results => {
+        knex('users').where('email', req.body.email)
+            .then(results => {
                 var user = results[0];
-                console.log(user);
-                console.log(req.body);
-                if (user.password == req.body.password) {
-                    req.session.user = user;
-                    res.redirect('/');
-                } else {
-                    res.redirect('/login');
-                }
-          })
-          .catch(() => {
-              res.redirect('/login');
-          })
+                hasher.compare(req.body, user).then(isMatch => {
+                    if (isMatch) {
+                        req.session.user = user;
+                        req.session.save(() => {
+                            res.redirect('/');
+                        });
+                    } else {
+                        res.redirect('/login');
+                    }
+                })
+            })
+            .catch(err => {
+                console.error(err);
+            })
+            
     })
     
     app.use(loginAuthentication);
 
     //home route
     app.get('/', (req, res) => {
-        req.session.views = (req.session.views || 0) + 1;
-        console.log(req.session.views);
         knex('posts')
           .select()
           .then(posts => {
@@ -58,9 +60,6 @@ module.exports = app => {
             res.render('pages/home', {posts, user});
         })
     });
-    
-    //sign up
-    app.get('/sign-up', (req, res) => res.send('sign-up'));
     
     //view edit profile
     app.get('/user-profile', (req, res) => res.send('user-profile test'));
@@ -96,7 +95,7 @@ module.exports = app => {
               res.redirect('/');
           })
     })
-     
+
     function loginAuthentication(req, res, next) {
         if (req.session.user) {
             next();
