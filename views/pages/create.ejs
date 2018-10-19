@@ -17,6 +17,8 @@
             <input class="post-title" type="text" name="title">
             <label for="body">Description:</label>
             <textarea class="post-body" rows="4" cols="50" name="description"></textarea>
+            <div id="editor"></div>
+            <button type="button" id="compileRun">compile + run</button>
             <input type="radio" name="cat" value="code">
             <span class="post-cat">code</span>
             <input type="radio" name="cat" value="general">
@@ -25,5 +27,13 @@
             <span class="post-cat">non-tech</span>
             <input class="post-submit" type="submit" value="Submit">
         </form>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+        </script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="/scripts/lib/ace-builds/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/scripts/create.js" type="text/javascript" charset="utf-8"></script>   
     </body>
 </html>

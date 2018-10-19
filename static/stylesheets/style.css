@@ -307,7 +307,7 @@ body {
 }
 
 .post-body {
-    height: 120px;
+    height: 110px;
     display: block;
     width: 100%;
     resize: vertical;
@@ -327,6 +327,12 @@ body {
     background-color: rgb(30,220,140);
     height: 30px;
     border-radius: 4px;
+}
+
+#editor {
+    height: 200px;
+    width: 100%;
+    margin: 20px 0;
 }
 
 .post-submit:hover {

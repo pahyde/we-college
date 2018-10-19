@@ -2,3 +2,5 @@ node_modules
 migrations
 seeds
 knexfile.js
+config/keys.js
+static/scripts/lib

@@ -1,6 +1,8 @@
 const path = require('path');
 const knex = require('../db/knex.js');
 const hasher = require('../config/hasher');
+const requester = require('../config/requester');
+const keys = require('../config/keys.js');
 
 module.exports = app => {
     
@@ -94,6 +96,27 @@ module.exports = app => {
           .then(() => {
               res.redirect('/');
           })
+    })
+
+    //API
+
+    app.get('/api/run', (req, res) => {
+        var program = req.query;
+        var url = 'https://api.jdoodle.com/v1/execute';
+        var params = {
+            clientId: keys.compilerId,
+            clientSecret:keys.compilerSecret,
+            script: program.script,
+            stdin: program.stdin,
+            language: 'java',
+            versionIndex: 2
+        }
+        requester.get(url, params).then(response => {
+            res.send(response);
+        })
+        .catch(error => {
+            res.send('error: ' + error);
+        })
     })
 
     function loginAuthentication(req, res, next) {
