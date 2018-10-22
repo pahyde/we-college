@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheets/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <title>We College | learn programming together.</title>
+    </head>
+    <body>
+        <%- include ../partials/nav.ejs %>
+        <div class="forum">
+            <div class="topic-post">
+                <label for="title">Title:</label>
+                <h2 class="post-title" type="text" name="title"><%= post.title %></h2>
+                <label for="body">Description:</label>
+                <p class="post-body" rows="4" cols="50" name="description"><%= post.description %></p>
+
+                <input type="hidden" name="program" id="program" value="<%= post.program %>">
+                <div id="editor" name="editor"></div>
+                <label for="title">System.in:</label>
+                <input class="stdin" type="text" name="stdin" value="<%= post.stdin %>">
+
+                <button type="button" class="post-submit" id="compileRun">compile + run</button>
+                <div class="console">
+                    <p class="output"></p>
+                </div>
+                <input class="post-submit" type="submit" value="Submit Post">
+            </div>
+        </div>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+        </script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="/scripts/lib/ace-builds/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/scripts/forum.js" type="text/javascript" charset="utf-8"></script>   
+    </body>
+</html>

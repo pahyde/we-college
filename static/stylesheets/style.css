@@ -191,17 +191,17 @@ body {
 
 .body-title {
     height: 30%;
-    font-family: futura;
-    font-size: 14px;
-    font-weight: 600;
+    font-family: Lato;
+    font-size: 15px;
+    font-weight: 400;
     color: rgb(0,0,0,.9);
 }
 
 .body-par {
     height: 70px;
     color: rgb(0,0,0,.6);
-    font-family: sans-serif;
-    font-weight: 200;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
     font-size: 15px;
 }
 
@@ -307,7 +307,7 @@ body {
 }
 
 .post-body {
-    height: 110px;
+    height: 100px;
     display: block;
     width: 100%;
     resize: vertical;
@@ -327,16 +327,57 @@ body {
     background-color: rgb(30,220,140);
     height: 30px;
     border-radius: 4px;
+    margin: 2px;
+}
+
+#compileRun {
+    background-color: rgb(30,180,210);
+    width: 100%;
+    margin-bottom: 10px;
+    float: none;
+}
+
+#compileRun:hover {
+    background-color: rgb(40,200,230);
 }
 
 #editor {
     height: 200px;
     width: 100%;
     margin: 20px 0;
+    margin-bottom: 10px;
+}
+
+.stdin {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 15px;
 }
 
 .post-submit:hover {
     background-color: rgb(50,240,160);
+}
+
+.float-right {
+    height: 10px;
+    margin-left: 70%;
+    width: 30%;
+}
+
+.console {
+    height: 250px;
+    width: 100%;
+    background-color: black;
+    padding: 20px;
+    padding-top: 10px;
+    overflow-y: auto;
+}
+
+.output {
+    color: rgb(140,250,60);
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
 }
 
 /* land */
@@ -391,5 +432,11 @@ body {
     display: block;
     margin-top: 10px;
     float: none;
+}
+
+/* forum */
+
+.forum {
+    width: 900px;
 }
 

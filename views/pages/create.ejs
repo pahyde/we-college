@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
         <link rel="stylesheet" href="stylesheets/style.css">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
         
@@ -13,19 +14,29 @@
     <body>
         <%- include ../partials/nav.ejs %>
         <form class="topic-post" action="/create-topic" method="post">
+            <div class="float-right">
+                <input type="radio" name="cat" value="code">
+                <span class="post-cat">code</span>
+                <input type="radio" name="cat" value="general">
+                <span class="post-cat">general</span>
+                <input type="radio" name="cat" value="non-tech">
+                <span class="post-cat">non-tech</span><br>
+            </div>
             <label for="title">Title:</label>
             <input class="post-title" type="text" name="title">
             <label for="body">Description:</label>
             <textarea class="post-body" rows="4" cols="50" name="description"></textarea>
-            <div id="editor"></div>
-            <button type="button" id="compileRun">compile + run</button>
-            <input type="radio" name="cat" value="code">
-            <span class="post-cat">code</span>
-            <input type="radio" name="cat" value="general">
-            <span class="post-cat">general</span>
-            <input type="radio" name="cat" value="non-tech">
-            <span class="post-cat">non-tech</span>
-            <input class="post-submit" type="submit" value="Submit">
+
+            <input type="hidden" name="program" id="program">
+            <div id="editor" name="editor"></div>
+            <label for="title">System.in:</label>
+            <input class="stdin" type="text" name="stdin">
+
+            <button type="button" class="post-submit" id="compileRun">compile + run</button>
+            <div class="console">
+                <p class="output"></p>
+            </div>
+            <input class="post-submit" type="submit" value="Submit Post">
         </form>
         <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"

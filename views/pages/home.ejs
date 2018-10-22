@@ -30,44 +30,46 @@
         </div>
         <div class="forum">
             <% for (var i = 0; i < posts.length; i++) {%>
-                <div class="forum-topic">
-                    <div class="topic-avitar">
-                        <img src="images/avi.jpeg" alt="avi">
+                <a href="/<%= posts[i].id %>">
+                    <div class="forum-topic">
+                        <div class="topic-avitar">
+                            <img src="images/avi.jpeg" alt="avi">
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-header">
+                                <div class="header-username">
+                                    <h3><%= posts[i].user %></h3>
+                                </div>
+                                <div class="header-timestamp">
+                                    <h3>
+                                        <span class="bold">Last Update:</span>
+                                        <span>14 hours ago</span>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="topic-body">
+                                <h3 class="body-title"><%= posts[i].title %></h3>
+                                <p class="body-par"><%= posts[i].description %></p>
+                            </div>
+                            <div class="topic-stats">
+                                <div class="stats-likes">
+                                    <img src="images/like.png" alt="avi">
+                                    <p><%= posts[i].likes %></p>
+                                </div>
+                                <div class="stats-comments">
+                                    <img src="images/comments.png" alt="avi">
+                                    <p><%= posts[i].comments %></p>
+                                </div>
+                                <div class="stats-category">
+                                    <h3>
+                                        <span class="bold" id="cat">Category:</span>
+                                        <span id="cat-type"><%= posts[i].category %></span>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="topic-content">
-                        <div class="topic-header">
-                            <div class="header-username">
-                                <h3><%= posts[i].user %></h3>
-                            </div>
-                            <div class="header-timestamp">
-                                <h3>
-                                    <span class="bold">Last Update:</span>
-                                    <span>14 hours ago</span>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="topic-body">
-                            <h3 class="body-title"><%= posts[i].title %></h3>
-                            <p class="body-par"><%= posts[i].description %></p>
-                        </div>
-                        <div class="topic-stats">
-                            <div class="stats-likes">
-                                <img src="images/like.png" alt="avi">
-                                <p><%= posts[i].likes %></p>
-                            </div>
-                            <div class="stats-comments">
-                                <img src="images/comments.png" alt="avi">
-                                <p><%= posts[i].comments %></p>
-                            </div>
-                            <div class="stats-category">
-                                <h3>
-                                    <span class="bold" id="cat">Category:</span>
-                                    <span id="cat-type"><%= posts[i].category %></span>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </a>
             <% } %>
         </div>
     </body>

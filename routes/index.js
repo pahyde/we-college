@@ -66,15 +66,20 @@ module.exports = app => {
     //view edit profile
     app.get('/user-profile', (req, res) => res.send('user-profile test'));
     
-    //view edit thread
-    app.get('/thread', (req, res) => {
-        res.sendFile(path.join(__dirname + '/../views/pages/create.html'));
-    });
-    
     //create thread
     app.get('/create', (req, res) => {
-        var user = req.session.user || null;
+        var user = 'user';
         res.render('pages/create', {user});
+    });
+
+    //view edit thread
+    app.get('/:id', (req, res) => {
+        knex('posts').where('id', req.params.id)
+            .then(result => {
+                var post = result[0];
+                var user = req.session.user || null;
+                res.render('pages/forum-post', {post, user});
+            })
     });
 
     //POST
@@ -82,11 +87,14 @@ module.exports = app => {
     //create thread
     app.post('/create-topic', (req, res) => {
         var post = req.body;
+        console.log(req.body);
         knex('posts')
           .insert({
             user: 'diff_user',
             title: post.title,
             description: post.description,
+            program: post.program,
+            stdin: post.stdin,
             category: post.cat,
             likes: 0,
             comments: 0,
@@ -98,6 +106,14 @@ module.exports = app => {
           })
     })
 
+    function loginAuthentication(req, res, next) {
+        if (req.session.user) {
+            next();
+        } else {
+            res.redirect('/login');
+        }
+    }
+
     //API
 
     app.get('/api/run', (req, res) => {
@@ -106,7 +122,7 @@ module.exports = app => {
         var params = {
             clientId: keys.compilerId,
             clientSecret:keys.compilerSecret,
-            script: program.script,
+            script: decoded(program.script),
             stdin: program.stdin,
             language: 'java',
             versionIndex: 2
@@ -119,12 +135,16 @@ module.exports = app => {
         })
     })
 
-    function loginAuthentication(req, res, next) {
-        if (req.session.user) {
-            next();
-        } else {
-            res.redirect('/login');
+    function decoded(script) {
+        var decode = {
+            '$$newline$$': '\n',
+            '$$tab$$': '\t',
+            '$$carriage$$': '\r',
+            '$$lessThan$$': '<',
+            '$$plus$$': '+'
         }
+        var encodedSymbols = /(\$\$newline\$\$|\$\$tab\$\$|\$\$carriage\$\$|\$\$lessThan\$\$|\$\$plus\$\$)/g;
+        return script.replace(encodedSymbols, (c) => decode[c]);
     }
 
 };

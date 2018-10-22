@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
         table.text('user');
         table.text('title');
         table.text('description');
+        table.text('program');
         table.text('category');
         table.integer('likes');
         table.integer('comments');

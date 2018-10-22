@@ -1,17 +1,21 @@
 $(document).ready(function() {  
     var editor = ace.edit("editor");
     editor.session.setMode("ace/mode/java");
-    editor.setValue("public class Test {\n    public static void main(String[] args) {\n    }\n}");
-    editor.clearSelection();
     
     var $editor = $('#editor');
     var $program = $('#program');
     var $compileRun = $('#compileRun');
     var $output = $('.output');
 
-    $editor.on('keyup', function() {
+    if ($program.attr("value") !== '') {
+        editor.setValue($program.attr("value"));
+    } else {
+        editor.setValue("public class Test {\n    public static void main(String[] args) {\n    }\n}");
+    }
+    editor.clearSelection();
+
+    $editor.on('keydown', function() {
         $program.val(editor.getValue());
-        console.log($program.val());
     })
 
     $compileRun.on('click', function() {
