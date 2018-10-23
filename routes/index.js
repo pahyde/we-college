@@ -82,6 +82,8 @@ module.exports = app => {
     });
 
     //view edit thread
+
+    //MASSIVE REFACTOR NEEDED
     app.get('/:id', (req, res) => {
         knex('posts').where('id', req.params.id)
           .then(result => {
@@ -89,10 +91,21 @@ module.exports = app => {
               knex('users').where('id', post.userid)
                 .then(postUser => {
                     post.username = postUser[0].firstName + ' ' + postUser[0].lastName;
-                    var user = req.session.user || null;
-                    res.render('pages/forum-post', {post, user});
+                    knex('comments').where('postid', post.id)
+                        .then(comments => {
+                            knex('users').select()
+                                .then(users => {
+                                    comments = comments.map(comment => {
+                                        cuser = users.find(user => user.id === comment.userid);
+                                        comment.username = cuser.firstName + ' ' + cuser.lastName;
+                                        return comment;
+                                    })
+                                    var user = req.session.user || null;
+                                    res.render('pages/forum-post', {post, comments, user});
+                                }) 
+                        })
                 }) 
-            })
+          })
     });
 
     //POST

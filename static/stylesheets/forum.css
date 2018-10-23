@@ -195,10 +195,16 @@
     margin-bottom: 10px;
 }
 
+.editor {
+    height: 200px;
+    width: 100%;
+    margin: 20px 0;
+    margin-bottom: 10px;
+}
+
 .reply {
     width: 770px;
     margin: auto;
-
 }
 
 .reply-content {
@@ -243,4 +249,25 @@
     color: rgba(10,10,10,.65);
     margin-bottom: 30px;
     font-size: 16px;
+}
+
+.console {
+    height: 250px;
+    width: 100%;
+    background-color: black;
+    padding: 20px;
+    padding-top: 10px;
+    overflow-y: auto;
+}
+
+.output {
+    color: rgb(140,250,60);
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+}
+
+#imp {
+    color: rgb(140,250,60);
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
 }
