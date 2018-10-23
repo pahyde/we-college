@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
         <link rel="stylesheet" href="stylesheets/style.css">
+        <link rel="stylesheet" href="stylesheets/forum.css">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
         
         <title>We College | learn programming together.</title>
@@ -14,22 +15,78 @@
     <body>
         <%- include ../partials/nav.ejs %>
         <div class="forum">
-            <div class="topic-post">
-                <label for="title">Title:</label>
-                <h2 class="post-title" type="text" name="title"><%= post.title %></h2>
-                <label for="body">Description:</label>
-                <p class="post-body" rows="4" cols="50" name="description"><%= post.description %></p>
-
-                <input type="hidden" name="program" id="program" value="<%= post.program %>">
-                <div id="editor" name="editor"></div>
-                <label for="title">System.in:</label>
-                <input class="stdin" type="text" name="stdin" value="<%= post.stdin %>">
-
-                <button type="button" class="post-submit" id="compileRun">compile + run</button>
-                <div class="console">
-                    <p class="output"></p>
+            <div class="forum-post">
+                <div class="static-content">
+                    <div class="forum-avitar">
+                        <img src="images/avi.jpeg" alt="avi">
+                    </div>
+                    <div class="forum-header">
+                        <div class="forum-static-top">
+                            <h4 class="post-user"><%= post.username %> <span class="light-grey">started a discussion</span></h4>
+                        </div>
+                        <div class="post-static-bottom">
+                            <h2 class="post-title" type="text" name="title"><%= post.title %></h2>
+                        </div>
+                    </div>
                 </div>
-                <input class="post-submit" type="submit" value="Submit Post">
+                <div class="forum-post-body">
+                    <p rows="4" cols="50" name="description" class="forum-post-desc"><%= post.description %></p>
+                    <div class="dev-env">
+                        <input type="hidden" name="program" id="program" value="<%= post.program %>">
+                        <div id="editor" name="editor"></div>
+                        <label for="title">System.in:</label>
+                        <input class="stdin" type="text" name="stdin" value="<%= post.stdin %>">
+
+                        <button type="button" class="compileRun post-submit" id="compileRun">compile + run</button>
+                        <div class="console">
+                            <p class="output"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="line light-grey"></div>
+                <textarea class="comment" placeholder="Add a comment"></textarea>
+                <!-- <p class="max-chars post-user light-grey">max characters:</p> -->
+                <div class="comment-options">
+                    <div class="add-code clone-code">
+                        <img class="add" src="images/plus-orange.png"></img>
+                        <span class="clone-desc">clone code snippet</span>
+                    </div>
+                    <div class="add-code new-code">
+                        <img class="add" src="images/plus-blue.png"></img>
+                        <span class="new-desc">new code snippet</span>
+                    </div>
+                    <input class="post-submit comment-submit" type="submit" value="Submit">
+                </div>
+                <div class="forum-post-body comment-editor hidden">
+                    <div class="dev-env">
+                        <input type="hidden" name="program" id="program" value="<%= post.program %>">
+                        <div id="c-editor" name="c-editor"></div>
+                        <label for="title">System.in:</label>
+                        <input class="stdin" type="text" name="stdin" value="<%= post.stdin %>">
+
+                        <button type="button" class="compileRun post-submit" id="compileRun">compile + run</button>
+                        <div class="console hidden">
+                            <p class="output"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="line light-grey truncated"></div>
+                <div class="reply">
+                    <div class="reply-content">
+                        <div class="reply-avitar">
+                            <img src="images/avi.jpeg" alt="avi">
+                        </div>
+                        <div class="forum-header">
+                            <div class="forum-static-top">
+                                <h4 class="reply-user"><%= post.username %></h4>
+                            </div>
+                            <div class="reply-static-bottom">
+                                <h2 class="reply-time" type="text" name="title">5 hours ago</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <p>I found it easier to approach this one by keeping the loop counts simple while using arithemtic on the loop counter to control dictate output.</p> 
+                </div>
             </div>
         </div>
         <script

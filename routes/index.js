@@ -58,8 +58,17 @@ module.exports = app => {
         knex('posts')
           .select()
           .then(posts => {
-            var user = req.session.user || null;
-            res.render('pages/home', {posts, user});
+            knex('users')
+              .select()
+              .then(users => {
+                  var user = req.session.user || null;
+                  posts = posts.map(post => {
+                      puser = users.find(user => user.id === post.userid);
+                      post.username = puser.firstName + ' ' + puser.lastName;
+                      return post;
+                  })
+                  res.render('pages/home', {posts, user});
+                })
         })
     });
     
@@ -75,10 +84,14 @@ module.exports = app => {
     //view edit thread
     app.get('/:id', (req, res) => {
         knex('posts').where('id', req.params.id)
-            .then(result => {
-                var post = result[0];
-                var user = req.session.user || null;
-                res.render('pages/forum-post', {post, user});
+          .then(result => {
+              var post = result[0];
+              knex('users').where('id', post.userid)
+                .then(postUser => {
+                    post.username = postUser[0].firstName + ' ' + postUser[0].lastName;
+                    var user = req.session.user || null;
+                    res.render('pages/forum-post', {post, user});
+                }) 
             })
     });
 
@@ -90,7 +103,7 @@ module.exports = app => {
         console.log(req.body);
         knex('posts')
           .insert({
-            user: 'diff_user',
+            userid: req.session.user.id,
             title: post.title,
             description: post.description,
             program: post.program,

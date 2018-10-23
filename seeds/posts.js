@@ -4,7 +4,8 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       return knex('posts').insert([
         {
-          user: 'some_user',
+          id: 1,
+          userid: 1,
           title: 'Trouble understanding nested for loops',
           description: 'Hey guys! I\'m having some trouble understanding nested loops. Does it matte...',
           program: 'public class {\n\n}',

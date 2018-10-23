@@ -1,0 +1,246 @@
+.forum {
+    box-shadow: 0px .5px 4px 2px rgba(0,0,0,.1);
+    margin-bottom: 20px;
+}
+
+.forum-avitar {
+    float: left;
+    width: 9%;
+    height: 100%;
+}
+
+.forum-avitar img {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.forum-post {
+    width: 870px;
+    height: 100%;
+    margin: auto;
+    margin-top: 40px;
+    padding-top: 16px;
+    padding-bottom: 40px;
+}
+
+.static-content {
+    width: 100%;
+    height: 80px;
+}
+
+.comment {
+    width: 88%;
+    height: 80px;
+    margin: 20px auto;
+    margin-bottom: 0px;
+    display: block;
+    background: rgba(100,100,150,.05);
+    outline: none;
+    border: solid rgba(100,100,100,.2) 1.5px;
+}
+
+.forum-header {
+    float: right;
+    width: 91%;
+    height: 100%;
+}
+
+.forum-static-top {
+    width: 100%;
+    height: 40%;
+}
+
+.forum-static-bottom {
+    width: 100%;
+    height: 60%;
+}
+
+.post-title {
+    margin-top: 4px;
+    font-family: Lato;
+    font-size: 19px;
+    color: rgba(20,20,20,.8);
+    font-weight: 700;
+}
+
+.post-user {
+    color: rgb(30,130,190);
+    font-size: 12px;
+    font-family: Lato;
+    font-weight: 400;
+    letter-spacing: .5px;
+    padding-top: 8px;
+}
+
+.light-grey {
+    color: rgba(70,70,100,.6);
+}
+
+.forum-post-body {
+    width: 710px;
+    margin: auto;
+    margin-top: 2px;
+    background-color: white;
+}
+
+.forum-post-desc {
+    color: rgba(10,10,10,.65);
+    font-size: 14px;
+    font-family: Lato;
+    font-weight: 400;
+    letter-spacing: .2px;
+    margin-bottom: 30px;
+}
+
+.line {
+    width: 100%;
+    height: 1.2px;
+    background-color: rgba(70,70,100,.4);
+    margin: 30px auto;
+}
+
+.truncated {
+    width: 770px;
+    margin-top: 30px;
+    color: rgba(70,70,70,.2);
+    height: .8px;
+    margin-bottom: 18px;
+}
+
+.forum-post textarea {
+    padding: 10px;
+    font-family: Lato, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    resize: vertical;
+}
+
+.max-chars {
+    width: 85%;
+    margin: auto;
+    padding: 4px 0;
+    margin-bottom: 40px;
+}
+
+.comment-options {
+    width: 770px;
+    height: 30px;
+    margin: auto;
+    margin-top: 2px;
+}
+
+.comment-options * {
+    float: right;
+}
+
+.clone-code {
+    width: 24%;
+    height: 100%;
+    float: right;
+}
+
+.new-code {
+    width: 24%;
+    height: 100%;
+    float: right;
+}
+
+.clone-code:hover {
+    cursor: pointer;
+}
+
+.new-code:hover {
+    cursor: pointer;
+}
+
+.clone-desc {
+    display: inline-block;
+    margin-top: 4px;
+    vertical-align: top;
+    font-family: Lato, sans-serif;
+    font-size: 16px;
+    color: rgb(230, 145, 34);
+}
+
+.new-desc {
+    display: inline-block;
+    margin-top: 4px;
+    vertical-align: top;
+    font-family: Lato, sans-serif;
+    font-size: 16px;
+    color: rgb(22, 175, 221);
+}
+
+.add {
+    width: 26px;
+    height: 26px;
+}
+
+.comment-submit {
+    float: left;
+    background: rgb(54, 221, 165);
+}
+
+.hidden {
+    visibility: hidden;
+    display: none;
+}
+
+#c-editor {
+    height: 200px;
+    width: 100%;
+    margin: 20px 0;
+    margin-bottom: 10px;
+}
+
+.reply {
+    width: 770px;
+    margin: auto;
+
+}
+
+.reply-content {
+    width: 100%;
+    height: 70px;
+}
+
+.reply-avitar {
+    float: left;
+    width: 9%;
+    height: 100%;
+}
+
+.reply-avitar img {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    margin-left: 0;
+    border-radius: 50%;
+}
+
+.reply-time {
+    margin-top: 4px;
+    font-family: Lato;
+    font-size: 14px;
+    color: rgba(20,20,20,.4);
+    font-weight: 700;
+}
+
+.reply-user {
+    color: rgb(20,20,20);
+    font-size: 14px;
+    font-family: Lato;
+    font-weight: 700;
+    padding-top: 8px;
+}
+
+.reply p {
+    margin-left: 2px;
+    margin-top: 0;
+    font-family: Lato, sans-serif;
+    color: rgba(10,10,10,.65);
+    margin-bottom: 30px;
+    font-size: 16px;
+}

@@ -26,15 +26,16 @@
             <input class="post-title" type="text" name="title">
             <label for="body">Description:</label>
             <textarea class="post-body" rows="4" cols="50" name="description"></textarea>
+            <div class="dev-env">
+                <input type="hidden" name="program" id="program">
+                <div id="editor" name="editor"></div>
+                <label for="title">System.in:</label>
+                <input class="stdin" type="text" name="stdin">
 
-            <input type="hidden" name="program" id="program">
-            <div id="editor" name="editor"></div>
-            <label for="title">System.in:</label>
-            <input class="stdin" type="text" name="stdin">
-
-            <button type="button" class="post-submit" id="compileRun">compile + run</button>
-            <div class="console">
-                <p class="output"></p>
+                <button type="button" class="compileRun post-submit" id="compileRun">compile + run</button>
+                <div class="console">
+                    <p class="output"></p>
+                </div>
             </div>
             <input class="post-submit" type="submit" value="Submit Post">
         </form>
